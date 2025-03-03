@@ -22,15 +22,18 @@ function App() {
   const handleAddProject = (projectData) => {
     setProjectsState((prev) => {
 
+      const projectId = Math.random();
       const newProject = {
-        id: Math.random(),
-        ...projectData
+        ...projectData,
+        id: projectId
       };
 
       return {
         ...prev,
+        selectedProjectId: undefined, // 프로젝트를 선택하지 않은 상태로 돌린다.
         projects: [...prev.projects, newProject]
       };
+
     });
   }
 
@@ -47,7 +50,10 @@ function App() {
   return (
     <>
       <main className="h-screen my-8 flex gap-8">
-        <ProjectsSidebar onStartAddProject={handleStartAddProject}/>
+        <ProjectsSidebar 
+          projects={projectsState.projects}
+          onStartAddProject={handleStartAddProject}
+        />
         {content}
       </main>
     </>
