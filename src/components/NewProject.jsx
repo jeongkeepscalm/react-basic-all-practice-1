@@ -3,7 +3,9 @@ import { useRef } from "react";
 import Modal from "./Modal.jsx";
 
 export default function NewProject({ onAdd, onCancel }) {
-  const modal = useRef();
+
+  // 모달 컴포넌트에 참조값을 넘겨주기 위해 사용
+  const modal1 = useRef();
 
   const title = useRef();
   const description = useRef();
@@ -27,7 +29,7 @@ export default function NewProject({ onAdd, onCancel }) {
       enteredDueDate.trim() === ""
     ) {
       // show the error modal
-      modal.current.open();
+      modal1.current.open();
       return;
     }
 
@@ -37,7 +39,7 @@ export default function NewProject({ onAdd, onCancel }) {
 
   return (
     <>
-      <Modal ref={modal} buttonCaption="Okay">
+      <Modal ref={modal1} buttonCaption="Okay">
         <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Input</h2>
         <p className="text-stone-600 mb-4">
           Oops... looks like you forgot to enter a value.

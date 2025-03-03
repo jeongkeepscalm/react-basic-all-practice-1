@@ -18,8 +18,12 @@ const Modal = forwardRef(function Modal({children, buttonCaption}, ref) {
     }
   })
 
+  /**
+   * ref={dialog} 가 렌더링된 후, const dialog 값은 dialog 태그가 된다. 
+   * dialog.current 로 접근 가능하다.
+   */
   return createPortal(
-    <dialog ref={dialog} className='backdrop:bg-stone-900/90 p-4'>
+    <dialog ref={dialog} className='backdrop:bg-stone-900/90 p-4 rounded-md shadow-md'>
       {children}
       <form method="dialog" className='mt-4 text-right'>
         <Button>{buttonCaption}</Button>
