@@ -40,9 +40,9 @@ export default function NewProject({ onAdd, onCancel }) {
   return (
     <>
       <Modal ref={modal1} buttonCaption="Okay">
-        <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Input</h2>
+        <h2 className="text-xl font-bold text-stone-700 my-4">알림!</h2>
         <p className="text-stone-600 mb-4">
-          Oops... looks like you forgot to enter a value.
+          필드 값을 모두 채워주세요.
         </p>
       </Modal>
       <div className="w-[35rem] mt-16">
